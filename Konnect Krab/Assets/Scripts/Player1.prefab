@@ -81,10 +81,72 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4515dadfddec2054eaa53f908cbd8f2a,
         type: 3}
       propertyPath: m_Name
-      value: Krab Coin
+      value: KrabCoin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4515dadfddec2054eaa53f908cbd8f2a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8990962238404959342}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4515dadfddec2054eaa53f908cbd8f2a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7031872447967144979}
   m_SourcePrefab: {fileID: 100100000, guid: 4515dadfddec2054eaa53f908cbd8f2a, type: 3}
+--- !u!1 &2090704542973427137 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4515dadfddec2054eaa53f908cbd8f2a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1279802284027723920}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &8990962238404959342
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090704542973427137}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 90
+  m_CollisionDetection: 0
+--- !u!65 &7031872447967144979
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090704542973427137}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.056530893, y: 0.056603927, z: 0.018754777}
+  m_Center: {x: -0.0027170153, y: -0.0003327392, z: -0.000008233823}
