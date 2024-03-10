@@ -19,4 +19,9 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void SelectSlot(int slot)
+    {
+        Debug.Log("GameManager Slot" +  slot);
+    }
 }
