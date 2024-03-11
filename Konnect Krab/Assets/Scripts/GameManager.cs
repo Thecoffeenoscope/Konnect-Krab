@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        BoardDimensions = new int[BoardHeight, BoardWidth];
+       // BoardDimensions = new int[BoardHeight, BoardWidth];
     }
 
     // Update is called once per frame
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     public void Turns(int slot)
     {
-        UpdateBoard(slot);
+        //UpdateBoard(slot);
 
         Debug.Log("GameManager Slot" +  slot);
         if (Player1Turn)
