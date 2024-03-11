@@ -10,8 +10,8 @@ public class Slots : MonoBehaviour
 
     void OnMouseDown()
     {
-       Debug.Log("slot number is" +  slot); 
-
+        gm.SelectSlot(slot);
+       
     }
 
   

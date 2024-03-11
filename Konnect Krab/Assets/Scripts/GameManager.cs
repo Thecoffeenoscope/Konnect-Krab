@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] SpawnLocation;
 
-    bool Player1Turn = true;
+    private bool Player1Turn = true;
 
 
     // Start is called before the first frame update
@@ -19,27 +19,27 @@ public class GameManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update(int slot)
+    void Update()
     {
-        Instantiate(Player1, SpawnLocation[slot].transform.position, Quaternion.identity);
+        
+        
+
     }
 
     public void SelectSlot(int slot)
     {
         Debug.Log("GameManager Slot" +  slot);
+        Instantiate(Player1, SpawnLocation[slot].transform.position, Quaternion.identity);
+
     }
 
-    public void TakeTurn(int slot)
+  
+
+    void TakeTurn(int slot)
     {
-        if (Player1Turn)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                Instantiate(Player1, transform.position, Quaternion.identity);
-            }
-        }
-        
+        Instantiate(Player1, SpawnLocation[slot].transform.position, Quaternion.identity);
     }
+    
     
 
    
