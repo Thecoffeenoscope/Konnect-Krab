@@ -29,7 +29,16 @@ public class GameManager : MonoBehaviour
     public void SelectSlot(int slot)
     {
         Debug.Log("GameManager Slot" +  slot);
-        Instantiate(Player1, SpawnLocation[slot].transform.position, Quaternion.identity);
+        if (Player1Turn)
+        {
+            Instantiate(Player1, SpawnLocation[slot].transform.position, Quaternion.identity);
+            Player1Turn = false;
+        }
+        else
+        {
+            Instantiate(Player2, SpawnLocation[slot].transform.position, Quaternion.identity);
+            Player1Turn = true;
+        }
 
     }
 
