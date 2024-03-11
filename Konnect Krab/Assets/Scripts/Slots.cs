@@ -10,7 +10,7 @@ public class Slots : MonoBehaviour
 
     void OnMouseDown()
     {
-        gm.SelectSlot(slot);
+        gm.Turns(slot);
        
     }
 
