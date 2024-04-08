@@ -11,16 +11,16 @@ public class GameManager : MonoBehaviour
 
     private bool Player1Turn = true;
 
-    private int[,] BoardDimensions;
+    int[,] BoardDimensions;
 
-    public int BoardHeight = 6;
+    public int BoardHeight = 7;
     public int BoardWidth = 7;
 
 
     // Start is called before the first frame update
     void Start()
     {
-       // BoardDimensions = new int[BoardHeight, BoardWidth];
+       BoardDimensions = new int[BoardHeight, BoardWidth];
     }
 
     // Update is called once per frame
@@ -33,42 +33,45 @@ public class GameManager : MonoBehaviour
 
     public void Turns(int slot)
     {
-        //UpdateBoard(slot);
-
-        Debug.Log("GameManager Slot" +  slot);
-        if (Player1Turn)
+        if (UpdateBoard(slot))
         {
-            Instantiate(Player1, SpawnLocation[slot].transform.position, Quaternion.identity);
-            Player1Turn = false;
+            Debug.Log("GameManager Slot" + slot);
+            if (Player1Turn)
+            {
+                Instantiate(Player1, SpawnLocation[slot].transform.position, Quaternion.identity);
+                Player1Turn = false;
+            }
+            else
+            {
+                Instantiate(Player2, SpawnLocation[slot].transform.position, Quaternion.identity);
+                Player1Turn = true;
+            }
         }
-        else
-        {
-            Instantiate(Player2, SpawnLocation[slot].transform.position, Quaternion.identity);
-            Player1Turn = true;
-        }
+       
 
     }
 
-    public void UpdateBoard(int slot)
+    bool UpdateBoard(int slot)
     {
-        for (int i = 0; i < BoardHeight; i++)
+        for (int row = 0; row <= BoardHeight; row++)
         {
-            if (BoardDimensions[slot, i] == 0)
+            if (BoardDimensions[slot, row] == 0)
             {
                 if (Player1Turn)
                 {
-                    BoardDimensions[slot, i] = 1;
+                    BoardDimensions[slot, row] = 1;
                 }
 
                 else
                 {
-                    BoardDimensions[slot, i] = 2;
+                    BoardDimensions[slot, row] = 2;
                 }
-                Debug.Log("piece spawned at (" + slot + "," + i + ")");
-                
+                Debug.Log("piece spawned at (" + slot + "," + row + ")");
+                return true;
             }
         }
         
+        return false;
     }
 
   
