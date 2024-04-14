@@ -19,6 +19,9 @@ public class Slots : MonoBehaviour
        
     }
 
-   
+    void OnMouseOver()
+    {
+        gm.Hoveroverslot(slot);
+    }
 
 }

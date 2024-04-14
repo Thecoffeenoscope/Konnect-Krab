@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour
     public GameObject Player1;
     public GameObject Player2;
 
+    public GameObject Player1Ghost;
+    public GameObject Player2Ghost; 
+
     public GameObject[] SpawnLocation;
 
     private bool Player1Turn = true;
@@ -21,6 +24,22 @@ public class GameManager : MonoBehaviour
     void Start()
     {
        BoardDimensions = new int[BoardHeight, BoardWidth];
+        Player1Ghost.SetActive(false);
+        Player2Ghost.SetActive(false);
+    }
+
+    public void Hoveroverslot(int slot)
+    {
+        if (Player1Turn)
+        {
+            Player1Ghost.SetActive(true);
+            Player1Ghost.transform.position = SpawnLocation[slot].transform.position;
+        }
+        else
+        {
+            Player2Ghost.SetActive(true);
+            Player2Ghost.transform.position = SpawnLocation[slot].transform.position;
+        }
     }
 
     // Update is called once per frame
@@ -37,6 +56,9 @@ public class GameManager : MonoBehaviour
     {
         if (UpdateBoard(slot))
         {
+            Player1Ghost.SetActive(false);
+            Player2Ghost.SetActive(false);
+
             Debug.Log("GameManager Slot" + slot);
             if (Player1Turn)
             {
