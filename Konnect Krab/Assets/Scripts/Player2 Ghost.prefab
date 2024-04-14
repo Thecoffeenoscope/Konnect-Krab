@@ -16,17 +16,17 @@ PrefabInstance:
     - target: {fileID: 1605669713781303163, guid: d21aa0f6ea11e8649abee3805b72121d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 16.740192
+      value: 3.178085
       objectReference: {fileID: 0}
     - target: {fileID: 1605669713781303163, guid: d21aa0f6ea11e8649abee3805b72121d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 16.064579
       objectReference: {fileID: 0}
     - target: {fileID: 1605669713781303163, guid: d21aa0f6ea11e8649abee3805b72121d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.0575562
+      value: -1.0057383
       objectReference: {fileID: 0}
     - target: {fileID: 1605669713781303163, guid: d21aa0f6ea11e8649abee3805b72121d,
         type: 3}
@@ -67,6 +67,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player2 Ghost
+      objectReference: {fileID: 0}
+    - target: {fileID: 2090704542973427137, guid: d21aa0f6ea11e8649abee3805b72121d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7031872447967144979, guid: d21aa0f6ea11e8649abee3805b72121d,
         type: 3}
