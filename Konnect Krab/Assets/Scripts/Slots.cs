@@ -11,11 +11,15 @@ public class Slots : MonoBehaviour
     void OnMouseDown()
     {
 
-        
-     gm.Turns(slot);
+        Invoke(nameof(SpawnPiece), 3);
+     
        
     }
 
-    
+    void SpawnPiece()
+    {
+        gm.Turns(slot);
+    }
+
 
 }

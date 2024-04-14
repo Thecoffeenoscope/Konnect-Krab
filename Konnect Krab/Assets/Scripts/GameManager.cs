@@ -31,6 +31,8 @@ public class GameManager : MonoBehaviour
 
     }
 
+
+
     public void Turns(int slot)
     {
         if (UpdateBoard(slot))
