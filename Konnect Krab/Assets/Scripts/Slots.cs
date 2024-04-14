@@ -7,19 +7,18 @@ public class Slots : MonoBehaviour
 {
     public int slot;
     public GameManager gm;
+    
 
     void OnMouseDown()
     {
 
-        Invoke(nameof(SpawnPiece), 3);
+
+        gm.Turns(slot);
+        
      
        
     }
 
-    void SpawnPiece()
-    {
-        gm.Turns(slot);
-    }
-
+   
 
 }
