@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
                 if(HasWon(1))
                 {
                     Debug.LogWarning("Player 1 wins");
+
                 }
             }
             else
@@ -101,6 +102,7 @@ public class GameManager : MonoBehaviour
                 if (HasWon(2))
                 {
                     Debug.LogWarning("Player 2 wins");
+
                 }
             }
         }
@@ -133,17 +135,64 @@ public class GameManager : MonoBehaviour
 
     bool HasWon(int playerNum)
     {
+        //horizontal win
         for (int x = 0; x < BoardWidth - 3; x++)
         {
-            for (int y = 0; y < BoardHeight - 3; y++)
+            for (int y = 0; y < BoardHeight; y++)
             {
-                if(BoardDimensions[x, y] == playerNum && BoardDimensions[x+1, y] == playerNum && BoardDimensions[x+2, y] == playerNum && BoardDimensions[x + 3, y] == playerNum)
+                if(BoardDimensions[x, y] == playerNum && BoardDimensions[x+1, y] == playerNum && BoardDimensions[x+2, y] == playerNum && BoardDimensions[x + 3, y] == playerNum && BoardDimensions[x + 3, y] == playerNum)
                 {
                     return true;
                 }
             }
         }
+
+        //verticle win 
+        for (int x = 0; x < BoardWidth; x++)
+        {
+            for (int y = 0; y < BoardHeight - 3; y++)
+            {
+                if (BoardDimensions[x, y] == playerNum && BoardDimensions[x, y + 1] == playerNum && BoardDimensions[x, y + 2] == playerNum && BoardDimensions[x, y + 3] == playerNum)
+                {
+                    return true;
+                }
+            }
+        }
+
+        //diagonal win 
+
+        for(int x = 0; x < BoardWidth - 3; x++)
+        {
+            for (int y = 0;y < BoardHeight - 3; y++)
+            {
+                if (BoardDimensions[x, y] == playerNum && BoardDimensions[x + 1, y + 1] == playerNum && BoardDimensions[x + 2, y + 2] == playerNum && BoardDimensions[x + 3, y + 3] == playerNum)
+                {
+                    return true;
+                }
+            }
+        }
+
+
+
+
+
+
+        for(int x = 0; x < BoardWidth - 3; x++)
+        {
+            for (int y = 0; y < BoardHeight - 3; y++)
+            {
+                if (BoardDimensions[x, y + 3] == playerNum && BoardDimensions[x + 1, y + 2] == playerNum && BoardDimensions[x + 2, y + 1] == playerNum && BoardDimensions[x + 3, y] == playerNum)
+                {
+                    return true;
+                }
+            }
+        }
+
         return false;
+
+
+        //verticle win 
+
     }
 
     #endregion
