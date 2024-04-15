@@ -13,7 +13,7 @@ public class Slots : MonoBehaviour
     {
 
 
-        gm.Turns(slot);
+        gm.SelectSlot(slot);
         
      
        

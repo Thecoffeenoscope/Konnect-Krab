@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    #region Game Objects
     public GameObject Player1;
     public GameObject Player2;
 
@@ -12,6 +14,10 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] SpawnLocation;
 
+    GameObject FallingPiece;
+    #endregion
+
+    #region attributes 
     private bool Player1Turn = true;
 
     int[,] BoardDimensions;
@@ -19,7 +25,9 @@ public class GameManager : MonoBehaviour
     public int BoardHeight = 7;
     public int BoardWidth = 7;
 
+    #endregion
 
+    #region Methods
     // Start is called before the first frame update
     void Start()
     {
@@ -30,16 +38,20 @@ public class GameManager : MonoBehaviour
 
     public void Hoveroverslot(int slot)
     {
-        if (Player1Turn)
+        if (BoardDimensions[BoardHeight - 1, BoardWidth - 1] == 0 && (FallingPiece == null || FallingPiece.GetComponent<Rigidbody>().velocity == Vector3.zero))
         {
-            Player1Ghost.SetActive(true);
-            Player1Ghost.transform.position = SpawnLocation[slot].transform.position;
+            if (Player1Turn)
+            {
+                Player1Ghost.SetActive(true);
+                Player1Ghost.transform.position = SpawnLocation[slot].transform.position;
+            }
+            else
+            {
+                Player2Ghost.SetActive(true);
+                Player2Ghost.transform.position = SpawnLocation[slot].transform.position;
+            }
         }
-        else
-        {
-            Player2Ghost.SetActive(true);
-            Player2Ghost.transform.position = SpawnLocation[slot].transform.position;
-        }
+      
     }
 
     // Update is called once per frame
@@ -48,6 +60,15 @@ public class GameManager : MonoBehaviour
         
         
 
+    }
+
+    public void SelectSlot (int slot)
+    {
+        if(FallingPiece == null || FallingPiece.GetComponent<Rigidbody>().velocity == Vector3.zero)
+        {
+            Turns(slot);
+
+        }
     }
 
 
@@ -62,13 +83,25 @@ public class GameManager : MonoBehaviour
             Debug.Log("GameManager Slot" + slot);
             if (Player1Turn)
             {
-                Instantiate(Player1, SpawnLocation[slot].transform.position, Quaternion.identity);
+                FallingPiece = Instantiate(Player1, SpawnLocation[slot].transform.position, Quaternion.identity);
+                FallingPiece.GetComponent<Rigidbody>().velocity = new Vector3(0, 0.1f, 0);
                 Player1Turn = false;
+                
+                if(HasWon(1))
+                {
+                    Debug.LogWarning("Player 1 wins");
+                }
             }
             else
             {
-                Instantiate(Player2, SpawnLocation[slot].transform.position, Quaternion.identity);
+                FallingPiece = Instantiate(Player2, SpawnLocation[slot].transform.position, Quaternion.identity);
+                FallingPiece.GetComponent<Rigidbody>().velocity = new Vector3(0, 0.1f, 0);
                 Player1Turn = true;
+
+                if (HasWon(2))
+                {
+                    Debug.LogWarning("Player 2 wins");
+                }
             }
         }
        
@@ -98,11 +131,26 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
-  
+    bool HasWon(int playerNum)
+    {
+        for (int x = 0; x < BoardWidth - 3; x++)
+        {
+            for (int y = 0; y < BoardHeight - 3; y++)
+            {
+                if(BoardDimensions[x, y] == playerNum && BoardDimensions[x+1, y] == playerNum && BoardDimensions[x+2, y] == playerNum && BoardDimensions[x + 3, y] == playerNum)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
-    
-    
+    #endregion
 
-   
+
+
+
+
 }
 
