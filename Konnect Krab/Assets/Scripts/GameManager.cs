@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.ShaderGraph.Serialization;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -90,7 +91,7 @@ public class GameManager : MonoBehaviour
                 if(HasWon(1))
                 {
                     Debug.LogWarning("Player 1 wins");
-
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }
             }
             else
@@ -102,7 +103,7 @@ public class GameManager : MonoBehaviour
                 if (HasWon(2))
                 {
                     Debug.LogWarning("Player 2 wins");
-
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
                 }
             }
         }
