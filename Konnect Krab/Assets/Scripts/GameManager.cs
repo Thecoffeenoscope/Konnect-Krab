@@ -111,7 +111,7 @@ public class GameManager : MonoBehaviour
                 if (HasWon(2))
                 {
                     Debug.LogWarning("Player 2 wins");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
                 }
             }
         }
