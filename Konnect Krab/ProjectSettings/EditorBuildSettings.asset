@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 431cdfa270f613b4ba56f0b7f472d8a0
+  - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/KrabsWins.unity
+    guid: 15da11764528c274e9a335fe0a287ea1
+  - enabled: 1
+    path: Assets/Scenes/PlanktonWins.unity
+    guid: 2a6fcd2e93f68144195bcd9287039899
   m_configObjects: {}
