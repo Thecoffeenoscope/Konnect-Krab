@@ -8,7 +8,9 @@ public class Slots : MonoBehaviour
     public int slot;
     public GameManager gm;
     
-
+    /// <summary>
+    /// spawns the piece on click
+    /// </summary>
     void OnMouseDown()
     {
 
@@ -19,6 +21,9 @@ public class Slots : MonoBehaviour
        
     }
 
+    /// <summary>
+    /// makes the piece hover over the slot
+    /// </summary>
     void OnMouseOver()
     {
         gm.Hoveroverslot(slot);

@@ -29,6 +29,10 @@ public class GameManager : MonoBehaviour
     #endregion
 
     #region Methods
+
+    /// <summary>
+    /// creates the ghost objects to show the player where their pieces are
+    /// </summary>
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +41,10 @@ public class GameManager : MonoBehaviour
         Player2Ghost.SetActive(false);
     }
 
+    /// <summary>
+    /// takes the ghost objects and displays them over the slots that they are over
+    /// </summary>
+    /// <param name="slot"></param>
     public void Hoveroverslot(int slot)
     {
         if (BoardDimensions[BoardHeight - 1, BoardWidth - 1] == 0 && (FallingPiece == null || FallingPiece.GetComponent<Rigidbody>().velocity == Vector3.zero))
@@ -55,14 +63,11 @@ public class GameManager : MonoBehaviour
       
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-        
-
-    }
-
+    
+    /// <summary>
+    /// stops multiple pieces from spawning.
+    /// </summary>
+    /// <param name="slot"></param>
     public void SelectSlot (int slot)
     {
         if(FallingPiece == null || FallingPiece.GetComponent<Rigidbody>().velocity == Vector3.zero)
@@ -73,7 +78,10 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    /// <summary>
+    /// this script triggers all of the other scripts including the win condition
+    /// </summary>
+    /// <param name="slot"></param>
     public void Turns(int slot)
     {
         if (UpdateBoard(slot))
@@ -103,7 +111,7 @@ public class GameManager : MonoBehaviour
                 if (HasWon(2))
                 {
                     Debug.LogWarning("Player 2 wins");
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 2);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }
             }
         }
@@ -111,6 +119,12 @@ public class GameManager : MonoBehaviour
 
     }
 
+    
+    /// <summary>
+    /// stores the location of the players pieces 
+    /// </summary>
+    /// <param name="slot"></param>
+    /// <returns></returns>
     bool UpdateBoard(int slot)
     {
         for (int row = 0; row <= BoardHeight; row++)
@@ -133,7 +147,11 @@ public class GameManager : MonoBehaviour
         
         return false;
     }
-
+    /// <summary>
+    /// determines if the player has won based on the orientation and location of their pieces.
+    /// </summary>
+    /// <param name="playerNum"></param>
+    /// <returns></returns>
     bool HasWon(int playerNum)
     {
         //horizontal win
@@ -192,7 +210,6 @@ public class GameManager : MonoBehaviour
         return false;
 
 
-        //verticle win 
 
     }
 
